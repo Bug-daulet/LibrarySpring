@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/">
+    <Resource name="jdbc/week" auth="Container"
+              type="javax.sql.DataSource" username="admin" password="YJI7gdJI9iaS01kh"
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/libraryportal?serverTimezone=UTC"
+              maxActive="10" maxIdle="4" />
+</Context>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Select All</title>
+</head>
+<body>
+    <a href="/logout">Log Out</a><br>
+    <a href="/home">Home</a>
+    <div th:each="book:${booksList}" style="margin: auto; width: 30%; border: 3px solid green; padding: 10px;">
+        <table style="border-collapse: collapse; border: 1px solid black; width: 100%" id=${book.getId()}/>
+        <tr>
+            <td>
+                <input style="width: 100%" type="hidden" name="bookId" value=${book.getId()} />&nbsp;&nbsp;
+                <a th:href="@{/books/delete/{id}(id=${book.getId()})}">Delete Book</a>&nbsp;&nbsp;
+                <a th:href="@{/books/edit/{id}(id=${book.getId()})}">Edit Book</a>&nbsp;&nbsp;
+            </td>
+            <td style="width:40%" rowspan="6"><img th:src="${book.getImageURL()}" width="128px" height="192px" /></td>
+        </tr>
+        <tr><td><input style="width: 80%" type="text" name="bookName" placeholder="book name" th:value="${book.getName()}" /></td></tr>
+        <tr><td><input style="width: 80%" type="text" name="bookAuthor" placeholder="book author" th:value="${book.getAuthor()}" /></td></tr>
+        <tr><td><input style="width: 80%" type="text" name="movieName" placeholder="movie name" th:value="${book.getMovieName()}" /></td></tr>
+        <tr><td><input style="width: 60%" type="url" name="bookURL" placeholder="book URL" th:value="${book.getBookURL()}" />&nbsp;<a th:href="${book.getBookURL()}">goodreads</a></td></tr>
+        <tr><td><input style="width: 70%" type="url" name="movieURL" placeholder="movie URL" th:value="${book.getMovieURL()}" />&nbsp;<a th:href="${book.getMovieURL()}">imdb</a></td></tr>
+        <tr><td colspan="2"><input style="width: 90%" type="url" name="imageURL" placeholder="image URL" th:value="${book.getImageURL()}" /></td></tr>
+        </table>
+        <br>
+    </div>
+    <a th:href="@{/books/page-3}">Add A New Book</a>
+</body>
+</html>

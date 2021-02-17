@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+<h1>Sign Up</h1>
+<p th:text="${message}">message</p>
+<form action="/registration" method="post">
+    <div><label> User Name : <input type="text" name="username"/><br><br></label></div>
+    <div><label> Password: <input type="password" name="password"/><br><br></label></div>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+    <div><input type="submit" value="Sign Up"/></div>
+</form>
+<br>
+<a href="/home">Home</a>
+<br>
+<a href="/login">Sign In</a>
+</body>
+</html>

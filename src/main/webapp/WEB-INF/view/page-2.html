@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Select One</title>
+</head>
+<body>
+    <p th:text="${book.getName()}">VALUE</p>
+    <p th:text="${book.getId()}">ID</p>
+    <a th:href="@{/books}">Books</a>
+</body>
+</html>
