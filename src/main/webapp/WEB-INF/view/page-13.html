@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+</head>
+<body>
+<h1>Add new student</h1>
+<form th:method="post" th:action="@{/students}" th:object="${student}"><!-- object user-->
+    <input type="text" placeholder="Email of student" th:field="*{email}">
+    <input type="text" placeholder="Password of student" th:field="*{password}">
+    <input type="submit" value="Add" />
+</form>
+<a th:href="@{/students}">Students</a>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Select All</title>
+</head>
+<body>
+<a href="/logout">Log Out</a><br>
+<a href="/home">Home</a>
+<div th:each="student:${studentsList}" style="margin: auto; width: 30%; border: 3px solid green; padding: 10px;">
+    <table style="border-collapse: collapse; border: 1px solid black; width: 100%" id=${student.getId()}/>
+        <tr>
+            <td>
+                <input style="width: 100%" type="hidden" name="studentId" value=${student.getId()} />&nbsp;&nbsp;
+                <a th:href="@{/students/delete/{id}(id=${student.getId()})}">Delete Student</a>&nbsp;&nbsp;
+                <a th:href="@{/students/edit/{id}(id=${student.getId()})}">Edit Student</a>&nbsp;&nbsp;
+            </td>
+        </tr>
+        <tr><td><input style="width: 80%" type="text" name="studentEmail" placeholder="student email" th:value="${student.getEmail()}" /></td></tr>
+        <tr><td><input style="width: 80%" type="text" name="studentPassword" placeholder="student password" th:value="${student.getPassword()}" /></td></tr>
+    </table>
+    <br>
+</div>
+<a th:href="@{/students/page-13}">Add New Student</a>
+</body>
+</html>

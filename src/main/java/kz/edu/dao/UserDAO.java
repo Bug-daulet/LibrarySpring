@@ -67,8 +67,8 @@ public class UserDAO
             CriteriaQuery<Role> q1 = builder1.createQuery(Role.class);
             Root<Role> root1 = q1.from(Role.class);
 
-            //Predicate predicateRole = builder1.equal(root1.get("name"), "ROLE_USER");
-            Predicate predicateRole = builder1.equal(root1.get("name"), "ROLE_ADMIN");
+            Predicate predicateRole = builder1.equal(root1.get("name"), "ROLE_USER");
+            //Predicate predicateRole = builder1.equal(root1.get("name"), "ROLE_ADMIN");
             Role role = session.createQuery(q1.where(predicateRole)).getSingleResult();
             user.setRole(role);
 

@@ -5,12 +5,12 @@
     <title>Delete</title>
 </head>
 <body>
-    <form th:method="DELETE" th:action="@{/people/{id}(id=${book.getId()})}" th:object="${book}">
+    <form th:method="delete" th:action="@{/books/{id}(id=${book.getId()})}" th:object="${book}">
         <label for="name">Delete a Book: </label>
         <br/>
         <input type="text" th:field="*{name}" id="name" />
         <br/>
-        <input type="text" th:field="*{id}" id="id" />
+        <input type="number" th:field="*{id}" id="id" />
         <br/>
         <input type="submit" value="Delete" />
     </form>
