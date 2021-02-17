@@ -7,24 +7,21 @@ import java.io.Serializable;
 @Table(name = "books")
 public class Book implements Serializable
 {
-    private long id;
+    private long isbn;
     private String name;
-    private String author;
-    private String movieName;
-    private String bookURL;
-    private String movieURL;
-    private String imageURL;
+    private int count;
+    private int availableCount;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "book_Id")
+    @Column(name = "isbn")
     public long getId()
     {
-        return this.id;
+        return this.isbn;
     }
-    public void setId(long id)
+    public void setId(long isbn)
     {
-        this.id = id;
+        this.isbn = isbn;
     }
 
     @Column(name = "book_name")
@@ -37,35 +34,23 @@ public class Book implements Serializable
         this.name = name;
     }
 
-    @Column(name = "book_movie")
-    public String getMovieName()
+    @Column(name = "count")
+    public int getCount()
     {
-        return this.movieName;
+        return this.count;
     }
-    public void setMovieName(String movieName)
+    public void setCount(int count)
     {
-        this.movieName = movieName;
-    }
-
-    @Column(name = "book_author")
-    public String getAuthor()
-    {
-        return this.author;
-    }
-    public void setAuthor(String author)
-    {
-        this.author = author;
+        this.count = count;
     }
 
-    @Column(name = "book_bookreads")
-    public String getBookURL() { return this.bookURL; }
-    public void setBookURL(String bookURL) { this.bookURL = bookURL; }
-
-    @Column(name = "book_imdb")
-    public String getMovieURL() { return this.movieURL; }
-    public void setMovieURL(String movieURL) { this.movieURL = movieURL; }
-
-    @Column(name = "book_poster")
-    public String getImageURL() { return this.imageURL; }
-    public void setImageURL(String imageURL) { this.imageURL = imageURL; }
+    @Column(name = "availableCount")
+    public int getAvailableCount()
+    {
+        return this.availableCount;
+    }
+    public void setAvailableCount(int availableCount)
+    {
+        this.availableCount = availableCount;
+    }
 }

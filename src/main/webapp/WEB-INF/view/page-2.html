@@ -5,8 +5,10 @@
     <title>Select One</title>
 </head>
 <body>
-    <p th:text="${book.getName()}">VALUE</p>
-    <p th:text="${book.getId()}">ID</p>
+    <p th:text="${book.getName()}">Name</p>
+    <p th:text="${book.getId()}">ISBN</p>
+    <p th:text="${book.getCount()}">Count</p>
+    <p th:text="${book.getAvailableCount()}">Available Count</p>
     <a th:href="@{/books}">Books</a>
 </body>
 </html>

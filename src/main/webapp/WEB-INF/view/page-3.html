@@ -5,10 +5,11 @@
     <title>Add</title>
 </head>
 <body>
-<h1>Add new member</h1>
+<h1>Add new book</h1>
     <form th:method="post" th:action="@{/books}" th:object="${book}">
-        <input type="text" th:field="*{name}" id="name" />
-        <br/>
+        <input type="text" placeholder="Name of the book" th:field="*{name}">
+        <input type="number" placeholder="count of the book" th:field="*{count}">
+        <input type="number" placeholder="available count of the book" th:field="*{availableCount}">
         <input type="submit" value="Add" />
     </form>
     <a th:href="@{/books}">Books</a>

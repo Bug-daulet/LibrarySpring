@@ -5,9 +5,10 @@
     <title>Update</title>
 </head>
 <body>
-    <form th:method="PATCH" th:action="@{/books/{id}(id=${book.getId()})}" th:object="${book}">
-        <label for="name">Enter a new name: </label>
-        <input type="text" th:field="*{name}" id="name" />
+    <form th:method="patch" th:action="@{/books/{id}(id=${book.getId()})}" th:object="${book}">
+        <input type="text" placeholder="Name of the book" th:field="*{name}">
+        <input type="number" placeholder="count of the book" th:field="*{count}">
+        <input type="number" placeholder="available count of the book" th:field="*{availableCount}">
         <br/>
         <input type="submit" value="Update" />
     </form>

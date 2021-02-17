@@ -1,6 +1,9 @@
 package kz.edu.configs;
 
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import javax.servlet.ServletContext;
 
 public class MySpringMVCDispatcherInitializer extends AbstractAnnotationConfigDispatcherServletInitializer
 {
@@ -21,4 +24,10 @@ public class MySpringMVCDispatcherInitializer extends AbstractAnnotationConfigDi
     {
         return new String[] {"/"};
     }
+
+    private void registerHiddenFieldFilter(ServletContext aContext) {
+        aContext.addFilter("hiddenHttpMethodFilter",
+                new HiddenHttpMethodFilter()).addMappingForUrlPatterns(null ,true, "/*");
+    }
+
 }

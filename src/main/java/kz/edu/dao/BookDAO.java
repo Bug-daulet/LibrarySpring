@@ -127,7 +127,6 @@ public class BookDAO
             session = sessionFactory.openSession();
             session.beginTransaction();
             Book book = session.find(Book.class, bookId);
-            System.out.println("The author of the book to be deleted: " + book.getAuthor());
             session.remove(book);
             session.getTransaction().commit();
         }
