@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Select All</title>
+</head>
+<body>
+<a href="/logout">Log Out</a><br>
+<a href="/home">Home</a>
+<div th:each="borrow:${borrowsList}" style="margin: auto; width: 30%; border: 3px solid green; padding: 10px;">
+    <table style="border-collapse: collapse; border: 1px solid black; width: 100%" id=${borrow.getId()}/>
+        <tr>
+            <td>
+                <input style="width: 100%" type="hidden" name="borrowId" value=${borrow.getId()} />&nbsp;&nbsp;
+                <a th:href="@{/borrows/delete/{id}(id=${borrow.getId()})}">Delete Borrow</a>&nbsp;&nbsp;
+                <a th:href="@{/borrows/edit/{id}(id=${borrow.getId()})}">Edit Borrow</a>&nbsp;&nbsp;
+            </td>
+        </tr>
+        <tr><td><input style="width: 80%" type="text" name="borrowId" placeholder="borrow id" th:value="${borrow.getID()}" /></td></tr>
+        <tr><td><input style="width: 80%" type="text" name="userEmail" placeholder="user email" th:value="${borrow.getUser().getEmail()}" /></td></tr>
+        <tr><td><input style="width: 80%" type="text" name="bookName" placeholder="book name" th:value="${borrow.getBook().getName()}" /></td></tr>
+        <tr><td><input style="width: 80%" type="date" name="borrowDate" placeholder="borrow date" th:value="${borrow.getBorrow_date()}" /></td></tr>
+        <tr><td><input style="width: 80%" type="date" name="returnDate" placeholder="return date" th:value="${borrow.getReturn_date()}" /></td></tr>
+    </table>
+    <br>
+</div>
+<a th:href="@{/borrows/page-8}">Add A New Borrow</a>
+</body>
+</html>

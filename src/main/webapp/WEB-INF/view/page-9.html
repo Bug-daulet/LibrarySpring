@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+</head>
+<body>
+<form th:method="patch" th:action="@{/borrows/{id}(id=${borrow.getId()})}" th:object="${borrow}">
+    <input type="text" placeholder="Id of the borrow" th:field="*{id}">
+    <input type="text" placeholder="Id of user" th:field="*{user.getId()}">
+    <input type="text" placeholder="Isbn of the book" th:field="*{book.getId()}">
+    <input type="date" placeholder="Borrow date" th:field="*{borrow_date}">
+    <input type="date" placeholder="Return date" th:field="*{return_date}">
+    <br/>
+    <input type="submit" value="Update" />
+</form>
+<a th:href="@{/borrows}">Borrows</a>
+</body>
+</html>

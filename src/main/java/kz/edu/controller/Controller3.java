@@ -67,6 +67,8 @@ public class Controller3 {
     @PatchMapping("/{id}")
     public String updateStudentPatch(@ModelAttribute("student") User student, @PathVariable("id") int id)
     {
+        if (student.getPassword().length() <= 15)
+            student.setPassword(passwordEncoder.encode(student.getPassword()));
         studentDAO.updateStudent(student);
         return "redirect:/students/"+student.getId();
     }

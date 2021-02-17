@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+</head>
+<body>
+<h1>Add new borrow</h1>
+<form th:method="post" th:action="@{/borrows}" th:object="${borrow}">
+    <input type="text" placeholder="Id of the borrow" th:field="*{id}">
+    <input type="text" placeholder="Email of user" th:field="*{user.getEmail()}">
+    <input type="text" placeholder="Name of the book" th:field="*{book.getName()}">
+    <input type="date" placeholder="Borrow date" th:field="*{borrow_date}">
+    <input type="date" placeholder="Return date" th:field="*{return_date}">
+    <input type="submit" value="Add" />
+</form>
+<a th:href="@{/borrows}">Borrows</a>
+</body>
+</html>

@@ -80,4 +80,28 @@ public class UserDAO
             session.close();
         }
     }
+
+    public User getUser(long id)
+    {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        User user;
+        try
+        {
+            CriteriaBuilder builder = session.getCriteriaBuilder();
+            CriteriaQuery<User> q1 = builder.createQuery(User.class);
+            Root<User> root = q1.from(User.class);
+
+            Predicate predicateUser = builder.equal(root.get("id"), id);
+            user = session.createQuery(q1.where(predicateUser)).getSingleResult();
+            session.getTransaction().commit();
+        } catch (NoResultException noResultException) {
+            return null;
+        }
+        finally
+        {
+            session.close();
+        }
+        return user;
+    }
 }

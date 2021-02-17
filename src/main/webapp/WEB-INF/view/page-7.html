@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Select One</title>
+</head>
+<body>
+<p th:text="${borrow.getId()}">Id</p>
+<p th:text="${borrow.getUser().getEmail()}">User email</p>
+<p th:text="${borrow.getBook().getName()}">Book name</p>
+<p th:text="${borrow.getBorrow_date()}">Borrow date</p>
+<p th:text="${borrow.getReturn_date()}">Return date</p>
+<a th:href="@{/borrows}">Borrows</a>
+</body>
+</html>
